@@ -1,37 +1,37 @@
 environment:
-  TWINE_USERNAME: bauerj
-  # The encrypted password, used for deploying.
-  TWINE_PASSWORD: 
-    secure: nJvSXE3tRtnBNSmQNZ0oZg==
+#   TWINE_USERNAME: 
+#   # The encrypted password, used for deploying.
+#   TWINE_PASSWORD: 
+#     secure: 
  
   matrix:
  
     # Pre-installed Python versions, which Appveyor may upgrade to
     # a later point release.
  
-    - PYTHON: "C:\\Python27"
-      PYTHON_VERSION: "2.7.x"
-      PYTHON_ARCH: "32"
+#     - PYTHON: "C:\\Python27"
+#       PYTHON_VERSION: "2.7.x"
+#       PYTHON_ARCH: "32"
  
-    - PYTHON: "C:\\Python27-x64"
-      PYTHON_VERSION: "2.7.x"
-      PYTHON_ARCH: "64"
+#     - PYTHON: "C:\\Python27-x64"
+#       PYTHON_VERSION: "2.7.x"
+#       PYTHON_ARCH: "64"
  
-    - PYTHON: "C:\\Python34"
-      PYTHON_VERSION: "3.4.x"
-      PYTHON_ARCH: "32"
+#     - PYTHON: "C:\\Python34"
+#       PYTHON_VERSION: "3.4.x"
+#       PYTHON_ARCH: "32"
  
-    - PYTHON: "C:\\Python34-x64"
-      PYTHON_VERSION: "3.4.x"
-      PYTHON_ARCH: "64"
+#     - PYTHON: "C:\\Python34-x64"
+#       PYTHON_VERSION: "3.4.x"
+#       PYTHON_ARCH: "64"
  
-    - PYTHON: "C:\\Python35"
-      PYTHON_VERSION: "3.5.x"
-      PYTHON_ARCH: "32"
+#     - PYTHON: "C:\\Python35"
+#       PYTHON_VERSION: "3.5.x"
+#       PYTHON_ARCH: "32"
  
-    - PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5.x"
-      PYTHON_ARCH: "64"
+#     - PYTHON: "C:\\Python35-x64"
+#       PYTHON_VERSION: "3.5.x"
+#       PYTHON_ARCH: "64"
  
     - PYTHON: "C:\\Python36"
       PYTHON_VERSION: "3.6.x"
@@ -40,6 +40,15 @@ environment:
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6.x"
       PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Python37"
+      PYTHON_VERSION: "3.7.x"
+      PYTHON_ARCH: "32"
+ 
+    - PYTHON: "C:\\Python37-x64"
+      PYTHON_VERSION: "3.7.x"
+      PYTHON_ARCH: "64"
+
  
 init:
   - "ECHO Python %PYTHON_VERSION% (%PYTHON_ARCH%bit) from %PYTHON%"
@@ -56,6 +65,8 @@ install:
   # the parent CMD process).
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python --version"
+  
+  - vcpkg install leveldb
  
   # Upgrade to the latest version of pip to avoid it displaying warnings
   # about it being out of date.
@@ -83,6 +94,6 @@ artifacts:
   # Archive the generated packages in the ci.appveyor.com build report.
   - path: dist\*.whl
  
-on_success:
+# on_success:
   # If this is a new release (a new tag), upload to PyPi
-  - if "%APPVEYOR_REPO_TAG%"=="true" ( twine upload dist\*.whl ) 
+#   - if "%APPVEYOR_REPO_TAG%"=="true" ( twine upload dist\*.whl ) 
