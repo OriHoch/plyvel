@@ -63,6 +63,8 @@ install:
   - set PATH=C:\Miniconda37-x64;C:\Miniconda37-x64\Scripts;%PATH%
   - "python --version"
   
+  - vcpkg install leveldb
+  
   - "conda install -y leveldb"
  
   # Upgrade to the latest version of pip to avoid it displaying warnings
