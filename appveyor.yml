@@ -1,4 +1,4 @@
-environment:
+# environment:
 #   TWINE_USERNAME: 
 #   # The encrypted password, used for deploying.
 #   TWINE_PASSWORD: 
