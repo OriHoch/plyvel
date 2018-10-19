@@ -67,16 +67,16 @@ install:
  
   # Upgrade to the latest version of pip to avoid it displaying warnings
   # about it being out of date.
-  - "pip install --disable-pip-version-check --user --upgrade pip"
+  - C:\Miniconda37-x64\python.exe -m pip install --disable-pip-version-check --user --upgrade pip install --disable-pip-version-check --user --upgrade pip
  
   # Install twine, support for 'bdist_wheel' and update setuptools.
-  - "pip install --upgrade wheel setuptools twine pytest"
+  - C:\Miniconda37-x64\python.exe -m pip  install --upgrade wheel setuptools twine pytest
 
-  - "pip install -r requirements-dev.txt"
+  - C:\Miniconda37-x64\python.exe -m pip  install -r requirements-dev.txt
  
 build_script:
   - "cython --cplus --fast-fail --annotate plyvel/_plyvel.pyx"
-  - "python setup.py install"
+  - "C:\Miniconda37-x64\python.exe setup.py install"
  
 test_script:
   # Build the compiled extension and run the project tests
