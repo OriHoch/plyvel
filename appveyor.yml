@@ -77,7 +77,7 @@ install:
   - "C:\\Miniconda37-x64\\python.exe -m pip  install -r requirements-dev.txt"
  
 build_script:
-  - "C:\\Miniconda37-x64\\cython.exe --cplus --fast-fail --annotate plyvel/_plyvel.pyx"
+  - "C:\\Miniconda37-x64\\Scripts\\cython.exe --cplus --fast-fail --annotate plyvel/_plyvel.pyx"
   - "C:\\Miniconda37-x64\\python.exe setup.py install"
  
 test_script:
